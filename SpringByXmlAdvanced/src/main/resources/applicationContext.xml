@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<!-- Id should be unique. Class refers to the class, hover your mouse and press ctrl to check the link. -->
-	<bean id="anyService" class="evolution.service.AnyService">
+	<!-- P represents property tag, which corresponds to setter injection. -->
+	<bean id="anyService" class="evolution.service.AnyService"
+		p:hobby="badminton"
+		p:anotherService-ref="anotherService">
 		<!-- Property refers to setter injection. -->
 		<!-- Call setName() -->
 		<property name="name">
 			<value>Chen</value>
 		</property>
+		<!-- You can pull the value at the same line of property. -->
+		<property name="gender" value="M" />
 		<!-- Call setInts() -->
 		<property name="ints">
 			<array value-type="int">
@@ -50,4 +56,6 @@
 		</property>
 	</bean>
 	<bean id="date" class="java.util.Date" />
+	<bean id="anotherService" class="evolution.service.AnotherService"
+		p:socialSecurityNumber="0" />
 </beans>
