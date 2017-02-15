@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Id should be unique. Class refers to the class, hover your mouse and press ctrl to check the link. -->
+	<bean id="anyService" class="evolution.constructor.service.AnyService">
+		<!-- Don't forget to define a constructor in AnyService. -->
+		<!-- The First Field in AnyService -->
+		<constructor-arg>
+			<value type="java.lang.String">Chen</value>
+		</constructor-arg>
+		<!-- The Second Field in AnyService -->
+		<constructor-arg>
+			<value type="java.lang.String">M</value>
+		</constructor-arg>
+		<!-- The Third Field in AnyService -->
+		<constructor-arg>
+			<value type="java.lang.String">Badminton</value>
+		</constructor-arg>
+		<!-- Football will be injected because setter injection overrides constructor injection. -->
+		<property name="hobby" value="Football"/>
+	</bean>
+</beans>
