@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Id should be unique. Class refers to the class, hover your mouse and press ctrl to check the link. -->
+	<bean id="anyService" class="evolution.service.AnyService">
+		<!-- Property refers to setter injection. -->
+		<!-- Call setName() -->
+		<property name="name">
+			<value>Chen</value>
+		</property>
+		<!-- Call setInts() -->
+		<property name="ints">
+			<array value-type="int">
+				<value>0</value>
+				<value>1</value>
+			</array>
+		</property>
+		<!-- Call setList() -->
+		<property name="list">
+			<list>
+				<value>Elsa</value>
+				<value>Anna</value>
+			</list>
+		</property>
+		<!-- Call setSet() -->
+		<property name="set">
+			<set>
+				<value>China</value>
+				<value>U.S.A</value>
+			</set>
+		</property>
+		<!-- Call setMap() -->
+		<property name="map">
+			<map>
+				<entry key="name" value="Chen" />
+				<entry key="gender" value="M" />
+			</map>
+		</property>
+		<!-- Call setProperties() -->
+		<property name="properties">
+			<map>
+				<entry key="name" value="Elsa" />
+				<entry key="age" value="26" />
+			</map>
+		</property>
+		<!-- setDate(Date date) -->
+		<property name="date">
+			<ref bean="date"/>
+		</property>
+	</bean>
+	<bean id="date" class="java.util.Date" />
+</beans>
