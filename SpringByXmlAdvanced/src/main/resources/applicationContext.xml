@@ -4,7 +4,7 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<!-- Id should be unique. Class refers to the class, hover your mouse and press ctrl to check the link. -->
-	<!-- P represents property tag, which corresponds to setter injection. -->
+	<!-- P represents property tag, which corresponds to setter injection. Don't forget to add xmlns:p. -->
 	<bean id="anyService" class="evolution.service.AnyService"
 		p:hobby="badminton"
 		p:anotherService-ref="anotherService">
