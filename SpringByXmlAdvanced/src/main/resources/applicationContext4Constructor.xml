@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:c="http://www.springframework.org/schema/c"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<!-- Id should be unique. Class refers to the class, hover your mouse and press ctrl to check the link. -->
-	<bean id="anyService" class="evolution.constructor.service.AnyService">
+	<!-- You can define the alias as s. -->
+	<bean id="anyService" name="s" class="evolution.constructor.service.AnyService"
+		c:_9-ref="theOtherService"
+		c:_10="California">
 		<!-- Don't forget to define a constructor in AnyService. -->
 		<!-- The First Field in AnyService -->
 		<constructor-arg>
@@ -17,7 +21,49 @@
 		<constructor-arg>
 			<value type="java.lang.String">Badminton</value>
 		</constructor-arg>
+		<constructor-arg>
+			<list value-type="java.lang.String">
+				<value>Urbana</value>
+				<value>Champaign</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<list value-type="java.util.Map">
+				<map key-type="java.lang.String" value-type="java.lang.String">
+					<entry key="name" value="Chen" />
+					<entry key="gender" value="M" />
+				</map>
+				<map key-type="java.lang.String" value-type="java.lang.String">
+					<entry key="name" value="Bob" />
+					<entry key="gender" value="M" />
+				</map>
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<set value-type="java.lang.String">
+				<value>Math</value>
+				<value>English</value>
+			</set>
+		</constructor-arg>
+		<constructor-arg>
+			<props value-type="java.lang.String">
+				<prop key="name">Chen</prop>
+				<prop key="gender">M</prop>
+			</props>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="evolution.constructor.service.AnotherService">
+				<constructor-arg>
+					<value>0</value>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+		<constructor-arg ref="theOtherService" />
 		<!-- Football will be injected because setter injection overrides constructor injection. -->
 		<property name="hobby" value="Football"/>
+	</bean>
+	<alias name="anyService" alias="service"/>
+	<bean id="theOtherService" class="evolution.constructor.service.TheOtherService">
+		<constructor-arg value="Ling" type="java.lang.String"></constructor-arg>
 	</bean>
 </beans>
