@@ -9,7 +9,7 @@ import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 
 
-public class AnyClass {
+public class Reflection {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		// Spring expression is able to get the value of mathematics expression.
