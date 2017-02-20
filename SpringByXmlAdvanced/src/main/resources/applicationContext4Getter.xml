@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="anyClass" class="evolution.beanGetter.AnyClass"
+		p:name="anyName"/>
+	<bean id="anyName" class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+		<property name="targetObject" ref="anyClass"/>
+		<!-- Call getName() -->
+		<property name="propertyPath" value="name"/>
+	</bean>
+</beans>
