@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<bean id="anyService" class="evolution.configurationBySpringExpression.service.AnyService" 
+		p:name="Elsa"
+		p:ints="#{new int[] {0, 1, 2}}"
+		p:lists="#{{'Elsa', 'Anna', 'Cinderella'}}"
+		p:sets="#{{'Elsa','Anna'}}"
+		p:maps="#{{id : 'a', name : 'Elsa'}}"
+		p:properties="#{{id : 0, name : 'Elsa'}}"
+		p:date="#{new java.util.Date()}" />
+</beans>
