@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        				http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<!-- Define a list. -->
+	<util:list id="listId" list-class="java.util.ArrayList">
+		<value>Elsa</value>
+		<value>Anna</value>
+	</util:list>
+
+	<!-- Define a set. -->
+	<util:set id="setId" set-class="java.util.HashSet">
+		<value>Apple</value>
+		<value>Pear</value>
+	</util:set>
+
+	<!-- Define a map. -->
+	<util:map id="mapId" map-class="java.util.HashMap">
+		<entry key="name" value="Chen" />
+		<entry key="gender" value="M" />
+	</util:map>
+
+	<!-- Define properties. -->
+	<util:properties id="propertiesId">
+		<prop key="name">Bob</prop>
+		<prop key="age">30</prop>
+	</util:properties>
+
+	<!-- Get access to class variable. -->
+	<util:constant id="staticStringId"
+		static-field="evolution.util.service.AdminService.STATIC_STRING" />
+
+	<!-- Define a bean. -->
+	<!-- p and <property> are used for calling the setter methods. -->
+	<bean id="adminService" class="evolution.util.service.AdminService"
+		p:string="Hello World">
+		<property name="list" ref="listId" />
+		<property name="set" ref="setId" />
+		<property name="map" ref="mapId" />
+		<property name="properties" ref="propertiesId" />
+	</bean>
+</beans>
