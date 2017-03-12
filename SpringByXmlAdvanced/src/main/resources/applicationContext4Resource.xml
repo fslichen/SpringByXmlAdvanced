@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        				http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+   <bean id="adminService" class="evolution.resource.service.AdminService">
+   		<!-- Spring injects the properties file into the resource instance variable within AdminService. -->
+   		<property name="resource" value="jdbc0.properties"/>
+   </bean>
+</beans>
