@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        				http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd
+        				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	<!-- ${} is the property place holder. -->
+	<!-- It combines two properties files together. -->
+	<context:property-placeholder location="jdbc0.properties, jdbc1.properties" />
+	<!-- beanName.property is expected. So that for adminService, it overrides anyUrl by anotherUrl.-->
+	<context:property-override location="jdbc2.properties"/>
+	<bean id="adminService" class="evolution.properties.service.AdminService"
+		p:driverClass="${driverClass}" 
+		p:url="${url}" 
+		p:user="${user}"
+		p:password="${password}" />
+</beans>
